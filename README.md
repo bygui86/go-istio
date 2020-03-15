@@ -1,7 +1,12 @@
 
-# Go Kubernetes and Istio samples
+# Go Istio samples
 
-coming soon...
+Project to explore Istio from a code point of view
+
+## Run
+```shell
+go run main.go
+```
 
 ---
 

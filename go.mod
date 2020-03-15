@@ -1,3 +1,5 @@
-module github.com/bygui86/go-kubernetes-istio
+module github.com/bygui86/go-istio
 
-go 1.12
+go 1.14
+
+require gopkg.in/yaml.v2 v2.2.8

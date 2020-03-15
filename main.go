@@ -4,9 +4,8 @@ import (
 	"io/ioutil"
 	"log"
 	"path/filepath"
-	"strconv"
-
-	yaml "gopkg.in/yaml.v2"
+	
+	"gopkg.in/yaml.v2"
 )
 
 type ServiceEntry struct {
@@ -37,15 +36,12 @@ func main() {
 	}
 
 	var serviceEntry ServiceEntry
-
 	err = yaml.Unmarshal(yamlFile, &serviceEntry)
 	if err != nil {
 		panic(err)
 	}
 
-	for i := 40000; i < 60000; i++ {
-		serviceEntry.Spec.Ports = append(serviceEntry.Spec.Ports, Ports{Number: i, Name: "calanca" + strconv.Itoa(i), Protocol: "tcp"})
-	}
+	serviceEntry.Spec.Ports = append(serviceEntry.Spec.Ports, Ports{Number: 80, Name: "http", Protocol: "tcp"})
 
 	outFileName, _ := filepath.Abs("./istio-service-entry-ext.yaml")
 	yamlOutFile, err := yaml.Marshal(serviceEntry)
